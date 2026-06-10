@@ -31,13 +31,8 @@
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                 </ul>
                 <div class="ms-lg-3 d-flex gap-2">
-                    {% if request.user.is_authenticated %}
-                        <a class="btn btn-outline-success" href="/dashboard/">Dashboard</a>
-                        <a class="btn btn-success" href="{% url 'logout' %}">Cerrar sesión</a>
-                    {% else %}
-                        <a class="btn btn-outline-success" href="{% url 'login' %}">Iniciar sesión</a>
-                        <a class="btn btn-success" href="{% url 'register' %}">Registrar usuario</a>
-                    {% endif %}
+                    <a class="btn btn-outline-success" href="{% url 'login' %}">Iniciar sesión</a>
+                    <a class="btn btn-success" href="{% url 'register' %}">Registrar usuario</a>
                 </div>
             </div>
         </nav>
@@ -51,12 +46,8 @@
                     <h1 class="display-5 fw-bold mb-3">Administra tu cultivo con visión y control</h1>
                     <p class="lead text-muted mb-4">Centraliza registros de cosecha, productividad y personal en una sola plataforma sin depender de recursos externos.</p>
                     <div class="d-flex flex-wrap gap-2">
-                        {% if request.user.is_authenticated %}
-                            <a class="btn btn-success btn-lg" href="/dashboard/">Ir al dashboard</a>
-                        {% else %}
-                            <a class="btn btn-success btn-lg" href="{% url 'login' %}">Iniciar sesión</a>
-                            <a class="btn btn-outline-success btn-lg" href="{% url 'register' %}">Registrar usuario</a>
-                        {% endif %}
+                        <a class="btn btn-success btn-lg" href="{% url 'login' %}">Iniciar sesión</a>
+                        <a class="btn btn-outline-success btn-lg" href="{% url 'register' %}">Registrar usuario</a>
                         <a class="btn btn-outline-secondary btn-lg" href="/reportes/">Ver reportes</a>
                     </div>
                 </div>
