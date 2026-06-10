@@ -20,5 +20,6 @@ urlpatterns = [
     path('configuracion/', views.configuracion, name='configuracion'),
     path('historial/', views.historial, name='historial'),
     path('metricas-empleado/', views.metricas_empleado, name='metricas_empleado'),
+    path('listar-usuarios/', views.listar_usuarios, name='listar_usuarios'),
     path('dashboard/', views.dashboard, name='dashboard'),
 ]

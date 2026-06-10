@@ -418,6 +418,12 @@ def metricas_empleado(request):
 
 
 @login_required(login_url='login')
+def listar_usuarios(request):
+    usuarios = User.objects.all().order_by('id')
+    return render(request, 'listar_usuarios.html', {'usuarios': usuarios})
+
+
+@login_required(login_url='login')
 @login_required(login_url='login')
 def dashboard(request):
     return render(request, 'dashboard/index.html')
