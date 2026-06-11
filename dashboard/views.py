@@ -25,13 +25,21 @@ def login_view(request):
         return redirect('dashboard')
 
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('dashboard')
-        mensaje = 'Usuario o contraseña incorrectos.'
+        username = request.POST.get('username', '').strip()
+        password = request.POST.get('password', '')
+
+        if not username or not password:
+            mensaje = 'Completa usuario y contraseña para iniciar sesión.'
+        else:
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('dashboard')
+
+            if User.objects.filter(username=username).exists():
+                mensaje = 'La contraseña es incorrecta.'
+            else:
+                mensaje = 'El usuario no existe.'
 
     return render(request, 'login.html', {'mensaje': mensaje})
 
