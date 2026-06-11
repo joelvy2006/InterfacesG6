@@ -28,6 +28,10 @@
         <nav class="container navbar navbar-expand-lg py-3">
             <a class="navbar-brand fw-bold text-success" href="/">Anthonela Farms</a>
             <div class="ms-auto d-flex gap-2 align-items-center">
+                <button class="btn btn-outline-success btn-sm d-flex align-items-center gap-2" id="toggle-cart-btn" type="button" aria-label="Mostrar carrito" title="Mostrar carrito">
+                    <i class="bi bi-cart3" aria-hidden="true"></i>
+                    <span class="d-none d-sm-inline">Carrito</span>
+                </button>
                 <button class="btn btn-outline-success btn-sm d-flex align-items-center gap-2" type="button" data-theme-toggle aria-label="Cambiar tema">
                     <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
                     <span class="d-none d-sm-inline">Tema</span>
@@ -40,9 +44,22 @@
 
     <main class="container py-5">
         <section class="shop-card p-4 p-lg-5 mb-4">
-            <p class="text-uppercase small text-success fw-semibold mb-2">Tienda de claveles</p>
-            <h1 class="h2 fw-bold mb-2">Claveles premium de Anthonela Farms</h1>
-            <p class="text-muted mb-0">Descubre nuestras variedades de claveles, ideales para decoración, exportación y venta especial.</p>
+            <p class="text-uppercase small text-success fw-semibold mb-2">Carrito de claveles</p>
+            <h1 class="h2 fw-bold mb-2">Selecciona tus claveles</h1>
+            <p class="text-muted mb-0">Revisa tu carrito aquí arriba y agrega los productos que quieras comprar.</p>
+        </section>
+
+        <section id="carrito-panel" class="shop-card p-3 mb-4" hidden>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h2 class="h4 fw-bold mb-0">Carrito</h2>
+                <button class="btn btn-outline-success btn-sm" type="button" id="clear-cart">Vaciar</button>
+            </div>
+            <p class="text-muted small mb-3">Aquí puedes ver lo que llevas para comprar.</p>
+            <div id="cart-items" class="mb-3"></div>
+            <div class="d-flex justify-content-between fw-semibold mb-0">
+                <span>Total</span>
+                <span id="cart-total">$0</span>
+            </div>
         </section>
 
         <div class="row g-4 align-items-start">
@@ -156,18 +173,6 @@
                 </section>
             </div>
 
-            <aside class="col-12 col-xl-4">
-                <div class="shop-card p-3 cart-panel">
-                    <h2 class="h4 fw-bold mb-2">Carrito</h2>
-                    <p class="text-muted small mb-3">Agrega productos y revisa tu selección.</p>
-                    <div id="cart-items" class="mb-3"></div>
-                    <div class="d-flex justify-content-between fw-semibold mb-2">
-                        <span>Total</span>
-                        <span id="cart-total">$0</span>
-                    </div>
-                    <button class="btn btn-outline-success w-100" type="button" id="clear-cart">Vaciar carrito</button>
-                </div>
-            </aside>
         </div>
     </main>
 
@@ -203,6 +208,11 @@
                 cart[name] = (cart[name] || 0) + 1;
                 renderCart();
             });
+        });
+
+        document.getElementById('toggle-cart-btn').addEventListener('click', function () {
+            const panel = document.getElementById('carrito-panel');
+            panel.hidden = !panel.hidden;
         });
 
         document.getElementById('clear-cart').addEventListener('click', function () {
