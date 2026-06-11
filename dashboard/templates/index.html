@@ -17,16 +17,25 @@
         }
 
         html[data-theme="dark"] body {
-            background: linear-gradient(180deg, #07100b 0%, #0b1811 45%, #0f2319 100%);
+            background: linear-gradient(180deg, #0c1711 0%, #12241c 45%, #173024 100%);
         }
 
         .hero-card,
         .metric-pill,
         header.sticky-top,
         footer.border-top {
-            background: var(--admin-surface);
-            border-color: var(--admin-border);
-            color: var(--admin-text);
+            background: rgba(255, 255, 255, 0.92);
+            border-color: rgba(16, 185, 129, 0.14);
+            color: #173224;
+        }
+
+        html[data-theme="dark"] .hero-card,
+        html[data-theme="dark"] .metric-pill,
+        html[data-theme="dark"] header.sticky-top,
+        html[data-theme="dark"] footer.border-top {
+            background: rgba(17, 24, 21, 0.88);
+            border-color: rgba(134, 239, 172, 0.12);
+            color: #edf7f0;
         }
 
         .hero-card {
@@ -43,7 +52,13 @@
         .hero-card small,
         .navbar-brand,
         .nav-link {
-            color: var(--admin-text);
+            color: inherit;
+        }
+
+        html[data-theme="dark"] .hero-card .text-muted,
+        html[data-theme="dark"] .hero-card small,
+        html[data-theme="dark"] .text-muted {
+            color: #bfd7c7 !important;
         }
 
         .metric-pill {
@@ -57,21 +72,29 @@
         }
 
         .btn-success {
-            background-color: var(--admin-primary);
-            border-color: var(--admin-primary);
+            background-color: #22c55e;
+            border-color: #22c55e;
+            color: #042f1d;
         }
 
         .btn-success:hover,
         .btn-success:focus {
-            background-color: var(--admin-primary-dark);
-            border-color: var(--admin-primary-dark);
+            background-color: #16a34a;
+            border-color: #16a34a;
+            color: #ffffff;
         }
 
         .btn-outline-success,
         .btn-outline-secondary {
-            color: var(--admin-text);
-            border-color: var(--admin-border);
+            color: #173224;
+            border-color: rgba(16, 185, 129, 0.18);
             background-color: transparent;
+        }
+
+        html[data-theme="dark"] .btn-outline-success,
+        html[data-theme="dark"] .btn-outline-secondary {
+            color: #edf7f0;
+            border-color: rgba(134, 239, 172, 0.18);
         }
 
         .btn-outline-success:hover,
