@@ -11,12 +11,71 @@
     <link rel="stylesheet" href="{% static 'public/vendors/bootstrap-icons/bootstrap-icons.css' %}">
     <link rel="stylesheet" href="{% static 'public/css/style.css' %}">
     <style>
-        body { background: linear-gradient(135deg, #e8f7ec 0%, #d3eed2 100%); color: #17321e; }
-        .hero-card { background: rgba(255,255,255,0.92); border: 1px solid rgba(18, 107, 57, 0.12); border-radius: 1.25rem; box-shadow: 0 14px 40px rgba(16, 64, 32, 0.12); }
-        .hero-card h1, .hero-card .lead { color: #0f5132; }
-        .metric-pill { border-radius: 1rem; background: #fff; border: 1px solid #dfeee2; box-shadow: 0 8px 20px rgba(24, 76, 39, 0.08); }
-        .nav-link { color: #234c37; }
-        .nav-link:hover { color: #0d6efd; }
+        :root {
+            --landing-bg: linear-gradient(135deg, #edf8ef 0%, #d9efe1 45%, #edf4ff 100%);
+            --landing-surface: rgba(255, 255, 255, 0.94);
+            --landing-surface-soft: rgba(242, 250, 243, 0.96);
+            --landing-border: rgba(18, 107, 57, 0.12);
+            --landing-text: #163b28;
+            --landing-muted: #4f6b59;
+        }
+
+        html[data-theme="dark"] {
+            --landing-bg: linear-gradient(180deg, #07130c 0%, #0d2117 45%, #12281f 100%);
+            --landing-surface: rgba(15, 23, 18, 0.92);
+            --landing-surface-soft: rgba(19, 32, 25, 0.96);
+            --landing-border: rgba(134, 239, 172, 0.12);
+            --landing-text: #edf7f0;
+            --landing-muted: #bfd7c7;
+        }
+
+        body {
+            background: var(--landing-bg);
+            color: var(--landing-text);
+        }
+
+        .hero-card {
+            background: var(--landing-surface);
+            border: 1px solid var(--landing-border);
+            border-radius: 1.25rem;
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            color: var(--landing-text);
+        }
+
+        .hero-card h1,
+        .hero-card .lead,
+        .hero-card h2,
+        .hero-card p {
+            color: var(--landing-text);
+        }
+
+        .hero-card .text-muted,
+        .hero-card .text-muted small,
+        .hero-card .lead {
+            color: var(--landing-muted) !important;
+        }
+
+        .metric-pill {
+            border-radius: 1rem;
+            background: var(--landing-surface-soft);
+            border: 1px solid var(--landing-border);
+            box-shadow: 0 8px 20px rgba(24, 76, 39, 0.08);
+            color: var(--landing-text);
+        }
+
+        .nav-link {
+            color: var(--landing-text);
+        }
+
+        .nav-link:hover {
+            color: #10b981;
+        }
+
+        header.sticky-top,
+        footer.border-top {
+            background: var(--landing-surface) !important;
+            border-color: var(--landing-border) !important;
+        }
     </style>
 </head>
 <body>
