@@ -20,12 +20,19 @@
             background: linear-gradient(180deg, #07100b 0%, #0b1811 45%, #0f2319 100%);
         }
 
-        .hero-card {
+        .hero-card,
+        .metric-pill,
+        header.sticky-top,
+        footer.border-top {
             background: var(--admin-surface);
+            border-color: var(--admin-border);
+            color: var(--admin-text);
+        }
+
+        .hero-card {
             border: 1px solid var(--admin-border);
             border-radius: 1.25rem;
             box-shadow: var(--admin-shadow);
-            color: var(--admin-text);
         }
 
         .hero-card h1,
@@ -33,30 +40,49 @@
         .hero-card p,
         .hero-card .lead,
         .hero-card .text-muted,
-        .hero-card small {
+        .hero-card small,
+        .navbar-brand,
+        .nav-link {
             color: var(--admin-text);
         }
 
         .metric-pill {
             border-radius: 1rem;
-            background: var(--admin-surface-soft);
             border: 1px solid var(--admin-border);
             box-shadow: var(--admin-shadow-sm);
-            color: var(--admin-text);
-        }
-
-        .nav-link {
-            color: var(--admin-text);
         }
 
         .nav-link:hover {
             color: var(--admin-primary);
         }
 
+        .btn-success {
+            background-color: var(--admin-primary);
+            border-color: var(--admin-primary);
+        }
+
+        .btn-success:hover,
+        .btn-success:focus {
+            background-color: var(--admin-primary-dark);
+            border-color: var(--admin-primary-dark);
+        }
+
+        .btn-outline-success,
+        .btn-outline-secondary {
+            color: var(--admin-text);
+            border-color: var(--admin-border);
+            background-color: transparent;
+        }
+
+        .btn-outline-success:hover,
+        .btn-outline-secondary:hover {
+            color: var(--admin-text);
+            background-color: var(--admin-surface-soft);
+            border-color: var(--admin-primary);
+        }
+
         header.sticky-top,
         footer.border-top {
-            background: rgba(255, 255, 255, 0.94) !important;
-            border-color: var(--admin-border) !important;
             backdrop-filter: blur(14px);
         }
 
