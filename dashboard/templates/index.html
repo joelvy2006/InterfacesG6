@@ -9,6 +9,7 @@
     <link rel="icon" href="{% static 'public/images/favicon/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'public/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'public/vendors/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'public/css/style.css' %}">
     <style>
         body { background: linear-gradient(135deg, #e8f7ec 0%, #d3eed2 100%); color: #17321e; }
         .hero-card { background: rgba(255,255,255,0.92); border: 1px solid rgba(18, 107, 57, 0.12); border-radius: 1.25rem; box-shadow: 0 14px 40px rgba(16, 64, 32, 0.12); }
@@ -31,7 +32,11 @@
                     <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                 </ul>
-                <div class="ms-lg-3 d-flex gap-2">
+                <div class="ms-lg-3 d-flex gap-2 align-items-center">
+                    <button class="btn btn-outline-success btn-sm d-flex align-items-center gap-2" type="button" data-theme-toggle aria-label="Cambiar tema">
+                        <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
+                        <span class="d-none d-sm-inline">Tema</span>
+                    </button>
                     <a class="btn btn-outline-success" href="{% url 'login' %}">Iniciar sesión</a>
                     <a class="btn btn-success" href="{% url 'register' %}">Registrar usuario</a>
                 </div>
@@ -146,6 +151,7 @@
     </footer>
 
     <script src="{% static 'public/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'public/js/main.js' %}"></script>
 </body>
 </html>
 

@@ -59,8 +59,12 @@ def register_view(request):
         password1 = request.POST.get('password1', '')
         password2 = request.POST.get('password2', '')
 
-        if not username or not password1 or not password2:
-            messages.error(request, 'Completa todos los campos obligatorios.')
+        if not username or not email or not password1 or not password2:
+            messages.error(request, 'Todos los campos son obligatorios, incluyendo correo y contraseña.')
+            return render(request, 'register.html')
+
+        if len(password1) < 8:
+            messages.error(request, 'La contraseña debe tener al menos 8 caracteres.')
             return render(request, 'register.html')
 
         if password1 != password2:
@@ -104,6 +108,10 @@ def personal(request):
         notas = request.POST.get('notas')
 
         try:
+            if not fecha_str or not empleado or not turno or not estado:
+                messages.error(request, 'Completa fecha, empleado, turno y estado para registrar asistencia.')
+                return redirect('personal')
+
             fecha = datetime.strptime(fecha_str, '%Y-%m-%d').date()
             Asistencia.objects.create(
                 fecha=fecha,
@@ -220,9 +228,15 @@ def registro_cosecha(request):
         observaciones = request.POST.get('observaciones')
         
         try:
-            # Convertir string a fecha y cantidad a entero
+            if not fecha_str or not bloque or not variedad or not responsable or not condicion or cantidad in (None, ''):
+                messages.error(request, 'Todos los campos de cosecha son obligatorios.')
+                return redirect('registro_cosecha')
+
             fecha = datetime.strptime(fecha_str, '%Y-%m-%d').date()
             cantidad_int = int(cantidad)
+            if cantidad_int < 0:
+                messages.error(request, 'La cantidad no puede ser negativa.')
+                return redirect('registro_cosecha')
             
             RegistroCosecha.objects.create(
                 fecha=fecha,
@@ -233,8 +247,13 @@ def registro_cosecha(request):
                 condicion=condicion,
                 observaciones=observaciones
             )
+            messages.success(request, 'Registro de cosecha guardado correctamente.')
+            return redirect('registro_cosecha')
+        except ValueError:
+            messages.error(request, 'La cantidad debe ser un número válido.')
             return redirect('registro_cosecha')
         except Exception as e:
+            messages.error(request, 'No se pudo guardar el registro de cosecha.')
             print(f"Error al guardar: {e}")
             return redirect('registro_cosecha')
     
@@ -341,6 +360,10 @@ def registro_productividad(request):
             return render(request, 'registro-productividad.html', {'registros': registros})
 
         try:
+            if int(embonches) < 0:
+                messages.error(request, 'La cantidad de embonches no puede ser negativa.')
+                return render(request, 'registro-productividad.html', {'registros': registros})
+
             RegistroProductividad.objects.create(
                 fecha=datetime.strptime(fecha, '%Y-%m-%d').date(),
                 bloque=bloque,
@@ -369,8 +392,15 @@ def editar_cosecha(request, id):
         observaciones = request.POST.get('observaciones')
         
         try:
+            if not fecha_str or not bloque or not variedad or not responsable or not condicion or cantidad in (None, ''):
+                messages.error(request, 'Completa todos los campos del registro de cosecha.')
+                return redirect('registro_cosecha')
+
             fecha = datetime.strptime(fecha_str, '%Y-%m-%d').date()
             cantidad_int = int(cantidad)
+            if cantidad_int < 0:
+                messages.error(request, 'La cantidad no puede ser negativa.')
+                return redirect('registro_cosecha')
             
             registro.fecha = fecha
             registro.bloque = bloque
@@ -380,9 +410,13 @@ def editar_cosecha(request, id):
             registro.condicion = condicion
             registro.observaciones = observaciones
             registro.save()
-            
+            messages.success(request, 'Registro de cosecha actualizado correctamente.')
+            return redirect('registro_cosecha')
+        except ValueError:
+            messages.error(request, 'La cantidad debe ser un número válido.')
             return redirect('registro_cosecha')
         except Exception as e:
+            messages.error(request, 'No se pudo actualizar el registro de cosecha.')
             print(f"Error al actualizar: {e}")
             return redirect('registro_cosecha')
     
