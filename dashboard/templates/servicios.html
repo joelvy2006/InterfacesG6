@@ -38,36 +38,108 @@
 
     <main class="container py-5">
         <section class="shop-card p-4 p-lg-5 mb-4">
-            <p class="text-uppercase small text-success fw-semibold mb-2">Servicios</p>
-            <h1 class="h2 fw-bold mb-2">Productos y servicios de Anthonela Farms</h1>
-            <p class="text-muted mb-0">Explora nuestras soluciones para producción, calidad y comercialización de flores.</p>
+            <p class="text-uppercase small text-success fw-semibold mb-2">Tienda de claveles</p>
+            <h1 class="h2 fw-bold mb-2">Claveles premium de Anthonela Farms</h1>
+            <p class="text-muted mb-0">Descubre nuestras variedades de claveles, ideales para decoración, exportación y venta especial.</p>
         </section>
 
-        <section class="row g-4">
-            <article class="col-12 col-md-6 col-xl-4">
-                <div class="shop-card p-3 h-100">
-                    <img class="product-img" src="{% static 'public/images/png/dasher-ai.png' %}" alt="Producto 1">
-                    <h2 class="h5 mt-3 mb-2">Pack de producción</h2>
-                    <p class="text-muted small mb-2">Control de cosechas, lotes y productividad para el equipo de campo.</p>
-                    <span class="price-tag">$180</span>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-xl-4">
-                <div class="shop-card p-3 h-100">
-                    <img class="product-img" src="{% static 'public/images/png/dasher-ui-bootstrap-5.jpg' %}" alt="Producto 2">
-                    <h2 class="h5 mt-3 mb-2">Sistema de calidad</h2>
-                    <p class="text-muted small mb-2">Clasificación, control y seguimiento del estado de tus flores.</p>
-                    <span class="price-tag">$240</span>
-                </div>
-            </article>
-            <article class="col-12 col-md-6 col-xl-4">
-                <div class="shop-card p-3 h-100">
-                    <img class="product-img" src="{% static 'public/images/png/dasher-ai.png' %}" alt="Producto 3">
-                    <h2 class="h5 mt-3 mb-2">Gestión de personal</h2>
-                    <p class="text-muted small mb-2">Asistencia, reportes y métricas para mejorar el trabajo del equipo.</p>
-                    <span class="price-tag">$150</span>
-                </div>
-            </article>
+        <section class="mb-5">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h2 class="h4 fw-bold mb-0">Clavel premium</h2>
+                <span class="badge bg-success-subtle text-success">Especial</span>
+            </div>
+            <div class="row g-4">
+                <article class="col-12 col-md-6 col-xl-4">
+                    <div class="shop-card p-3 h-100">
+                        <img class="product-img" src="{% static 'public/images/png/dasher-ai.png' %}" alt="Clavel rojo premium">
+                        <h3 class="h5 mt-3 mb-2">Clavel rojo premium</h3>
+                        <p class="text-muted small mb-2">Ramos y cajas de alta calidad para eventos, floristerías y exportación.</p>
+                        <span class="price-tag">$180 / caja</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 col-xl-4">
+                    <div class="shop-card p-3 h-100">
+                        <img class="product-img" src="{% static 'public/images/png/dasher-ui-bootstrap-5.jpg' %}" alt="Clavel blanco premium">
+                        <h3 class="h5 mt-3 mb-2">Clavel blanco elegante</h3>
+                        <p class="text-muted small mb-2">Variedad sofisticada ideal para bodas, arreglos y decoración premium.</p>
+                        <span class="price-tag">$240 / caja</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 col-xl-4">
+                    <div class="shop-card p-3 h-100">
+                        <img class="product-img" src="{% static 'public/images/png/dasher-ai.png' %}" alt="Clavel rosa premium">
+                        <h3 class="h5 mt-3 mb-2">Clavel rosa artesanal</h3>
+                        <p class="text-muted small mb-2">Tonos suaves y frescos para centros de mesa y presentaciones especiales.</p>
+                        <span class="price-tag">$150 / caja</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h2 class="h4 fw-bold mb-0">Clavel nacional</h2>
+                <span class="badge bg-info-subtle text-info">Producto local</span>
+            </div>
+            <div class="row g-4">
+                <article class="col-12 col-md-6 col-xl-4">
+                    <div class="shop-card p-3 h-100">
+                        <img class="product-img" src="{% static 'public/images/png/dasher-ui-bootstrap-5.jpg' %}" alt="Clavel nacional rojo">
+                        <h3 class="h5 mt-3 mb-2">Clavel nacional rojo</h3>
+                        <p class="text-muted small mb-2">Producción local de excelente resistencia y color vibrante para venta directa.</p>
+                        <span class="price-tag">$130 / caja</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 col-xl-4">
+                    <div class="shop-card p-3 h-100">
+                        <img class="product-img" src="{% static 'public/images/png/dasher-ai.png' %}" alt="Clavel nacional amarillo">
+                        <h3 class="h5 mt-3 mb-2">Clavel nacional amarillo</h3>
+                        <p class="text-muted small mb-2">Opción brillante y alegre para mercados, ferias y decoración cotidiana.</p>
+                        <span class="price-tag">$110 / caja</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 col-xl-4">
+                    <div class="shop-card p-3 h-100">
+                        <img class="product-img" src="{% static 'public/images/png/dasher-ui-bootstrap-5.jpg' %}" alt="Clavel nacional mixto">
+                        <h3 class="h5 mt-3 mb-2">Clavel nacional mixto</h3>
+                        <p class="text-muted small mb-2">Mezcla de tonos para promociones, bouquets y ventas por volumen.</p>
+                        <span class="price-tag">$95 / caja</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h2 class="h4 fw-bold mb-0">Clavel payaso</h2>
+                <span class="badge bg-warning-subtle text-warning">Diversión y color</span>
+            </div>
+            <div class="row g-4">
+                <article class="col-12 col-md-6 col-xl-4">
+                    <div class="shop-card p-3 h-100">
+                        <img class="product-img" src="{% static 'public/images/png/dasher-ai.png' %}" alt="Clavel payaso clásico">
+                        <h3 class="h5 mt-3 mb-2">Clavel payaso clásico</h3>
+                        <p class="text-muted small mb-2">Colorido y llamativo, perfecto para fiestas, decoración juvenil y ventas impulsivas.</p>
+                        <span class="price-tag">$140 / caja</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 col-xl-4">
+                    <div class="shop-card p-3 h-100">
+                        <img class="product-img" src="{% static 'public/images/png/dasher-ui-bootstrap-5.jpg' %}" alt="Clavel payaso mixto">
+                        <h3 class="h5 mt-3 mb-2">Clavel payaso mixto</h3>
+                        <p class="text-muted small mb-2">Combinación alegre de colores con gran impacto visual en centros y arreglos.</p>
+                        <span class="price-tag">$125 / caja</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 col-xl-4">
+                    <div class="shop-card p-3 h-100">
+                        <img class="product-img" src="{% static 'public/images/png/dasher-ai.png' %}" alt="Clavel payaso jumbo">
+                        <h3 class="h5 mt-3 mb-2">Clavel payaso jumbo</h3>
+                        <p class="text-muted small mb-2">Flores grandes y vistosas, recomendadas para exhibición y ventas promocionales.</p>
+                        <span class="price-tag">$165 / caja</span>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
