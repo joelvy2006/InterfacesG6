@@ -260,20 +260,27 @@ def registro_cosecha(request):
     # Obtener registros
     registros = RegistroCosecha.objects.all()
     
-    # Filtrar por responsable
+    # Filtros de búsqueda
     filtro_responsable = request.GET.get('filtro_responsable', '').strip()
+    filtro_bloque = request.GET.get('filtro_bloque', '').strip()
+    filtro_variedad = request.GET.get('filtro_variedad', '').strip()
+    filtro_fecha_desde = request.GET.get('filtro_fecha_desde', '').strip()
+    filtro_fecha_hasta = request.GET.get('filtro_fecha_hasta', '').strip()
+
     if filtro_responsable:
         registros = registros.filter(responsable__icontains=filtro_responsable)
-    
-    # Filtrar por bloque
-    filtro_bloque = request.GET.get('filtro_bloque', '').strip()
+
     if filtro_bloque:
         registros = registros.filter(bloque__icontains=filtro_bloque)
-    
-    # Filtrar por variedad
-    filtro_variedad = request.GET.get('filtro_variedad', '').strip()
+
     if filtro_variedad:
         registros = registros.filter(variedad=filtro_variedad)
+
+    if filtro_fecha_desde:
+        registros = registros.filter(fecha__gte=filtro_fecha_desde)
+
+    if filtro_fecha_hasta:
+        registros = registros.filter(fecha__lte=filtro_fecha_hasta)
     
     # Calcular estadísticas
     total_claveles = sum(r.cantidad for r in registros)
@@ -339,6 +346,8 @@ def registro_cosecha(request):
         'filtro_responsable': filtro_responsable,
         'filtro_bloque': filtro_bloque,
         'filtro_variedad': filtro_variedad,
+        'filtro_fecha_desde': filtro_fecha_desde,
+        'filtro_fecha_hasta': filtro_fecha_hasta,
     }
     
     return render(request, 'registro-cosecha.html', context)

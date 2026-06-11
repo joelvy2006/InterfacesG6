@@ -67,6 +67,51 @@
     </div>
 </section>
 
+<section class="card mb-4">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h6 class="mb-1">Filtrar registros</h6>
+                <p class="text-muted mb-0">Busca cosechas por fecha, bloque, responsable o variedad.</p>
+            </div>
+        </div>
+        <form method="get" class="row g-3 align-items-end">
+            <div class="col-md-3">
+                <label for="filtro_fecha_desde" class="form-label">Desde</label>
+                <input type="date" class="form-control" id="filtro_fecha_desde" name="filtro_fecha_desde" value="{{ filtro_fecha_desde|default:'' }}">
+            </div>
+            <div class="col-md-3">
+                <label for="filtro_fecha_hasta" class="form-label">Hasta</label>
+                <input type="date" class="form-control" id="filtro_fecha_hasta" name="filtro_fecha_hasta" value="{{ filtro_fecha_hasta|default:'' }}">
+            </div>
+            <div class="col-md-2">
+                <label for="filtro_bloque" class="form-label">Bloque</label>
+                <input type="text" class="form-control" id="filtro_bloque" name="filtro_bloque" value="{{ filtro_bloque|default:'' }}" placeholder="Ej. Lote 1">
+            </div>
+            <div class="col-md-2">
+                <label for="filtro_responsable" class="form-label">Responsable</label>
+                <input type="text" class="form-control" id="filtro_responsable" name="filtro_responsable" value="{{ filtro_responsable|default:'' }}" placeholder="Nombre">
+            </div>
+            <div class="col-md-2">
+                <label for="filtro_variedad" class="form-label">Variedad</label>
+                <select class="form-select" id="filtro_variedad" name="filtro_variedad">
+                    <option value="">Todas</option>
+                    <option value="clavel-rojo" {% if filtro_variedad == 'clavel-rojo' %}selected{% endif %}>Clavel Rojo</option>
+                    <option value="clavel-rosa" {% if filtro_variedad == 'clavel-rosa' %}selected{% endif %}>Clavel Rosa</option>
+                    <option value="clavel-blanco" {% if filtro_variedad == 'clavel-blanco' %}selected{% endif %}>Clavel Blanco</option>
+                    <option value="clavel-morado" {% if filtro_variedad == 'clavel-morado' %}selected{% endif %}>Clavel Morado</option>
+                    <option value="clavel-naranja" {% if filtro_variedad == 'clavel-naranja' %}selected{% endif %}>Clavel Naranja</option>
+                    <option value="clavel-bicolor" {% if filtro_variedad == 'clavel-bicolor' %}selected{% endif %}>Clavel Bicolor</option>
+                </select>
+            </div>
+            <div class="col-12 d-flex gap-2">
+                <button type="submit" class="btn btn-outline-success">Aplicar filtros</button>
+                <a href="{% url 'registro_cosecha' %}" class="btn btn-outline-secondary">Limpiar</a>
+            </div>
+        </form>
+    </div>
+</section>
+
 <section class="card">
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-3">
