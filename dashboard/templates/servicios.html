@@ -14,13 +14,22 @@
         .shop-card { background: var(--admin-surface); border: 1px solid var(--admin-border); border-radius: 1.1rem; box-shadow: var(--admin-shadow-sm); }
         .product-img { width: 100%; height: 180px; object-fit: cover; border-radius: 0.9rem; }
         .price-tag { color: var(--admin-primary-dark); font-weight: 700; }
+
+        html[data-theme="dark"] header.sticky-top,
+        html[data-theme="dark"] footer.border-top {
+            background: rgba(10, 18, 14, 0.92) !important;
+        }
     </style>
 </head>
 <body>
     <header class="sticky-top border-bottom bg-white/90 backdrop-blur">
         <nav class="container navbar navbar-expand-lg py-3">
             <a class="navbar-brand fw-bold text-success" href="/">Anthonela Farms</a>
-            <div class="ms-auto d-flex gap-2">
+            <div class="ms-auto d-flex gap-2 align-items-center">
+                <button class="btn btn-outline-success btn-sm d-flex align-items-center gap-2" type="button" data-theme-toggle aria-label="Cambiar tema">
+                    <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
+                    <span class="d-none d-sm-inline">Tema</span>
+                </button>
                 <a class="btn btn-outline-success" href="/">Volver al inicio</a>
                 <a class="btn btn-success" href="{% url 'login' %}">Iniciar sesión</a>
             </div>
@@ -67,5 +76,6 @@
     </footer>
 
     <script src="{% static 'public/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'public/js/main.js' %}"></script>
 </body>
 </html>
