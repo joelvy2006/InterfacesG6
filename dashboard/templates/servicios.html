@@ -226,7 +226,7 @@
             updateView(productsSection.hidden);
         });
 
-        updateView(false);
+        updateView(true);
 
         document.getElementById('clear-cart').addEventListener('click', function () {
             Object.keys(cart).forEach(function (key) { delete cart[key]; });
